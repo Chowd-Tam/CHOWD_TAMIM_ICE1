@@ -56,6 +56,28 @@ public class CardTrick {
         userCard.setSuit(Card.SUITS[c_suit]); // card suit
         System.out.println("User Card: " + userCard.getSuit() + " " + userCard.getValue()); // message conf
         
+        // luckyCard - hard-coded card obj
+        Card luckyCard = new Card;
+        luckyCard.setValue(3);
+        luckyCard.setSuit("Clubs");
+
+        // verify lucky card is found
+        boolean luckyFound = false; // boolean to output final message
+        for (Card c : magicHand) {
+            // checks all cards in magicHand to see if userCard exists in magicHand
+            if (c.getValue() == userCard.getValue() && c.getSuit().equalsIgnoreCase(userCard.getSuit())) {
+                luckyFound = true;
+                break;
+            }
+        }
+        // output messages for lucky card
+        if (luckyFound) {
+            System.out.println("You found the lucky card!");
+        }
+        else {
+            System.out.println("The lucky card is not in the magic hand. Better luck next time!");
+        }
+        
         // search for card that matches user input
         boolean foundCard = false; // boolean to output final message
         for (Card c : magicHand) {
